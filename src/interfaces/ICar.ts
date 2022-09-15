@@ -8,5 +8,4 @@ const carSchema = vehicleSchema.extend({
 
 type ICar = z.infer<typeof carSchema>;
 
-export default ICar;
-export { carSchema };
+export { carSchema, ICar };
