@@ -19,4 +19,33 @@ const carMockwithId:ICar & {_id:string} = {
     doorsQty: 2
 }
 
-export { carMockCreate, carMockwithId };
+const carMockForChange:ICar = {
+    model: "Camaro Azul",
+    year: 1998,
+    color: "azul",
+    buyValue: 3502000,
+    seatsQty: 3,
+    doorsQty: 3,
+}
+
+const carMockForChangeWithId:ICar & { _id:string }= {
+    _id: "63235cd68418bba5d1d401da",
+    model: "Camaro Azul",
+    year: 1998,
+    color: "azul",
+    buyValue: 3502000,
+    seatsQty: 3,
+    doorsQty: 3,
+}
+
+const carMockWithError:ICar & { _id:string } = {
+    _id: "63235cd68418bba5d1d401da",
+    model: "Camaro Azul",
+    year: 100,
+    color: "a",
+    buyValue: 3502000,
+    seatsQty: 3,
+    doorsQty: 3,
+}
+
+export { carMockCreate, carMockwithId, carMockForChange, carMockForChangeWithId, carMockWithError };
