@@ -27,11 +27,17 @@ class CarService implements IService<ICar> {
     return car;
   }
   public async update(_id: string, obj: ICar): Promise< ICar | null> {
-    const car = this._car.update(_id, obj);
+    const parsed = carSchema.safeParse(obj);
+    if (!parsed.success) {
+      throw parsed.error;
+    }
+    const car = await this._car.update(_id, parsed.data);
+    if (!car) throw new Error(ErrorTypes.EntityNotFound);
     return car;
   }
   public async delete(_id: string): Promise< ICar | null> {
-    const car = this._car.delete(_id);
+    const car = await this._car.delete(_id);
+    if (!car) throw new Error(ErrorTypes.EntityNotFound);
     return car;
   }
 }
